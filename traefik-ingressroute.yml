@@ -8,13 +8,13 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`argocd.kube-wescodevops`)
+      match: Host(`argocd.kube-wescodevops.home`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`argocd.kube-wescodevops`) && Headers(`Content-Type`, `application/grpc`)
+      match: Host(`argocd.kube-wescodevops.home`) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server
@@ -34,4 +34,4 @@ spec:
     name: ssl-issuer
     kind: ClusterIssuer
   dnsNames:
-    - argocd.kube-wescodevops
+    - argocd.kube-wescodevops.home
